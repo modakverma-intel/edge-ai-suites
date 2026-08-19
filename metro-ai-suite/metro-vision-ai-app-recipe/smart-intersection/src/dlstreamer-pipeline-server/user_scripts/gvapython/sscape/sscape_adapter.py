@@ -240,15 +240,15 @@ class PostInferenceDataPublish:
 
       if self.is_publish_image:
         self.buildImgData(imgdatadict, frame, True)
-        self.client.publish(f"scenescape/image/camera/{self.cameraid}", json.dumps(imgdatadict))
+        # self.client.publish(f"scenescape/image/camera/{self.cameraid}", json.dumps(imgdatadict))
         self.is_publish_image = False
 
       if self.is_publish_calibration_image:
         if not imgdatadict:
           self.buildImgData(imgdatadict, frame, False)
-        self.client.publish(f"scenescape/image/calibration/camera/{self.cameraid}", json.dumps(imgdatadict))
+        # self.client.publish(f"scenescape/image/calibration/camera/{self.cameraid}", json.dumps(imgdatadict))
         self.is_publish_calibration_image = False
 
-      self.client.publish(f"scenescape/data/camera/{self.cameraid}", json.dumps(self.frame_level_data))
+      # self.client.publish(f"scenescape/data/camera/{self.cameraid}", json.dumps(self.frame_level_data))
       frame.add_message(json.dumps(self.frame_level_data))
     return True
