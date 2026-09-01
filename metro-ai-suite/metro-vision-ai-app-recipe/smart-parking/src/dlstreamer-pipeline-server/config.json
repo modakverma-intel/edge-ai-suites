@@ -50,7 +50,7 @@
                 "auto_start": false
             },
             {
-                "name": "yolov11s_npu",
+                "name": "yolov11s_npu_tp",
                 "source": "gstreamer",
                 "queue_maxsize": 50,
                 "pipeline": "{auto_source} name=source ! decodebin3 ! gvadetect model=/home/pipeline-server/models/public/yolo11s/INT8/yolo11s.xml device=NPU batch-size=8 inference-interval=1 inference-region=0 nireq=2 threshold=0.7 model-instance-id=instnpu0 name=detection ! queue ! gvaclassify model=/home/pipeline-server/models/colorcls2/colorcls2.xml device=NPU inference-interval=1 inference-region=1 nireq=2 batch-size=8 model-instance-id=instnpu1 name=classification ! queue ! gvametaconvert add-empty-results=true name=metaconvert ! queue ! appsink name=destination",

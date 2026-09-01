@@ -9,7 +9,7 @@ function run_sample() {
   if [ $device == "GPU" ]; then
     pipeline_name="yolov11s_gpu"
   elif [ $device == "NPU" ]; then
-    pipeline_name="yolov11s_npu"
+    pipeline_name="yolov11s_npu_tp"
   else
     pipeline_name="yolov11s"
   fi
